@@ -5,8 +5,10 @@ export interface IBook {
   author: String
 }
 
-export async function createBook(author: String, title: String): Promise<void> {
-  await BookRepository.insertBook({author, title})
+export async function createBook(author: String, title: String): Promise<IBook> {
+  const book: IBook = {author, title}
+  await BookRepository.insertBook(book)
+  return book
 }
 
 

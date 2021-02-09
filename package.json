@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "test": "mocha -r ts-node/register src/tests/**/*.spec.ts",
     "create": "npm run build && npm run test",
     "build": "tsc -p .",
-    "local": "sudo npm i -g && pizza",
+    "local": "sudo npm i -g && solid_library_kata",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
   },
   "repository": {
@@ -30,10 +31,15 @@
     "sqlite": "^4.0.19"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.14",
     "@types/express": "^4.17.11",
+    "@types/mocha": "^8.2.0",
     "@types/mongoose": "^5.10.3",
     "@types/node": "^14.14.25",
+    "chai": "^4.3.0",
+    "mocha": "^8.2.1",
     "nodemon": "^2.0.7",
+    "nyc": "^15.1.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   }

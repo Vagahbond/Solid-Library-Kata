@@ -3,8 +3,8 @@ import {IBook} from "../models/book";
 import { BookModel } from '../database/book.model';
 
 
-export async function findBook(author: string, title: String): Promise<IBook | null> {
-  return await BookModel.findOne({ title, author })
+export async function findBook(book: IBook): Promise<IBook | null> {
+  return await BookModel.findOne({ title: book.title, author: book.author })
 }
 
 export async function findBooksOfAutor(author: String): Promise<IBook[]> {
